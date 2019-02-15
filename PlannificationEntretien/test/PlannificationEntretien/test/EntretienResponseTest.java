@@ -9,12 +9,13 @@ import java.util.Date;
 
 import org.junit.jupiter.api.Test;
 
-import PlannificationEntretien.model.EntretienReponseNonCompleteException;
-import PlannificationEntretien.model.EntretienRequestNonCompleteException;
-import PlannificationEntretien.model.ICandidat;
+import PlannificationEntretien.exception.EntretienReponseNonCompleteException;
+import PlannificationEntretien.exception.EntretienRequestNonCompleteException;
+import PlannificationEntretien.model.Candidat;
 import PlannificationEntretien.model.IConsultantRecruteur;
-import PlannificationEntretien.model.testCandidat;
-import PlannificationEntretien.model.testConsultantRecruteur;
+import PlannificationEntretien.model.Tech;
+import PlannificationEntretien.model.Candidat;
+import PlannificationEntretien.model.ConsultantRecruteur;
 import PlannificationEntretien.model.testEntretienRequest;
 import PlannificationEntretien.model.testEntretienResponse;
 
@@ -30,15 +31,15 @@ class EntretienResponseTest {
 	@Test
 	void test_consultant_recruteur() {
 		testEntretienResponse myEntretienResponse= new testEntretienResponse();
-		myEntretienResponse.setConsultantRecruteur(new testConsultantRecruteur());
+		myEntretienResponse.setConsultantRecruteur(new ConsultantRecruteur());
 		assertTrue(myEntretienResponse.getConsultantRecruteur() instanceof IConsultantRecruteur);
 	}
 	
 	@Test
 	void test_candidat() {
 		testEntretienResponse myEntretienResponse= new testEntretienResponse();
-		myEntretienResponse.setCandidat(new testCandidat());
-		assertTrue(myEntretienResponse.getCandidat() instanceof ICandidat);
+		myEntretienResponse.setCandidat(new Candidat("Jean",22,Tech.Android));
+		assertTrue(myEntretienResponse.getCandidat() instanceof Candidat);
 	}
 	
 	@Test
@@ -54,8 +55,8 @@ class EntretienResponseTest {
 			testEntretienResponse myEntretienResponse = new testEntretienResponse();
 			myEntretienResponse.setDate(new Date());
 			myEntretienResponse.setSalleNumero("1");
-			myEntretienResponse.setCandidat(new testCandidat());
-			myEntretienResponse.setConsultantRecruteur(new testConsultantRecruteur());
+			myEntretienResponse.setCandidat(new Candidat("Jean",22,Tech.Android));
+			myEntretienResponse.setConsultantRecruteur(new ConsultantRecruteur());
 			assertTrue(myEntretienResponse.estComplete());
 		}catch(EntretienReponseNonCompleteException e) {
 			fail("Devrait renvoyer true");
@@ -67,8 +68,8 @@ class EntretienResponseTest {
 		try {
 			testEntretienResponse myEntretienResponse = new testEntretienResponse();
 			myEntretienResponse.setSalleNumero("1");
-			myEntretienResponse.setCandidat(new testCandidat());
-			myEntretienResponse.setConsultantRecruteur(new testConsultantRecruteur());
+			myEntretienResponse.setCandidat(new Candidat("Jean",22,Tech.Android));
+			myEntretienResponse.setConsultantRecruteur(new ConsultantRecruteur());
 			myEntretienResponse.estComplete();
 			fail("Devrait renvoyer une exception car EntretienResponse imcomplet");
 		}catch(EntretienReponseNonCompleteException e) {
@@ -81,8 +82,8 @@ class EntretienResponseTest {
 		try {
 			testEntretienResponse myEntretienResponse= new testEntretienResponse();
 			myEntretienResponse.setDate(new Date());
-			myEntretienResponse.setCandidat(new testCandidat());
-			myEntretienResponse.setConsultantRecruteur(new testConsultantRecruteur());
+			myEntretienResponse.setCandidat(new Candidat("Jean",22,Tech.Android));
+			myEntretienResponse.setConsultantRecruteur(new ConsultantRecruteur());
 			myEntretienResponse.estComplete();
 			fail("Devrait renvoyer une exception car EntretienResponse imcomplet");
 		}catch(EntretienReponseNonCompleteException e) {
@@ -96,7 +97,7 @@ class EntretienResponseTest {
 			testEntretienResponse myEntretienResponse= new testEntretienResponse();
 			myEntretienResponse.setDate(new Date());
 			myEntretienResponse.setSalleNumero("1");
-			myEntretienResponse.setConsultantRecruteur(new testConsultantRecruteur());
+			myEntretienResponse.setConsultantRecruteur(new ConsultantRecruteur());
 			myEntretienResponse.estComplete();
 			fail("Devrait renvoyer une exception car EntretienResponse imcomplet");
 		}catch(EntretienReponseNonCompleteException e) {
@@ -110,7 +111,7 @@ class EntretienResponseTest {
 			testEntretienResponse myEntretienResponse= new testEntretienResponse();
 			myEntretienResponse.setDate(new Date());
 			myEntretienResponse.setSalleNumero("1");
-			myEntretienResponse.setCandidat(new testCandidat());
+			myEntretienResponse.setCandidat(new Candidat("Jean",22,Tech.Android));
 			myEntretienResponse.estComplete();
 			fail("Devrait renvoyer une exception car EntretienResponse imcomplet");
 		}catch(EntretienReponseNonCompleteException e) {

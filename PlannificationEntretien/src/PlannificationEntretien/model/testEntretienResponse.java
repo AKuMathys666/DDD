@@ -2,12 +2,14 @@ package PlannificationEntretien.model;
 
 import java.util.Date;
 
+import PlannificationEntretien.exception.EntretienReponseNonCompleteException;
+
 public class testEntretienResponse {
 
 	private Date date;
 	private IConsultantRecruteur consultantRecruteur;
 	private String salleNumero;
-	private ICandidat candidat;
+	private Candidat candidat;
 	
 	public Date getDate() {
 		return date;
@@ -17,7 +19,7 @@ public class testEntretienResponse {
 		return consultantRecruteur;
 	}
 
-	public ICandidat getCandidat() {
+	public Candidat getCandidat() {
 		return candidat;
 	}
 
@@ -37,7 +39,7 @@ public class testEntretienResponse {
 		this.salleNumero = salleNumero;
 	}
 
-	public void setCandidat(ICandidat candidat) {
+	public void setCandidat(Candidat candidat) {
 		this.candidat = candidat;
 	}
 

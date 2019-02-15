@@ -7,8 +7,8 @@ import org.junit.jupiter.api.Test;
 
 import PlannificationEntretien.model.ICandidat;
 import PlannificationEntretien.model.IConsultantRecruteur;
-import PlannificationEntretien.model.testCandidat;
-import PlannificationEntretien.model.testConsultantRecruteur;
+import PlannificationEntretien.model.Candidat;
+import PlannificationEntretien.model.ConsultantRecruteur;
 
 class ConsultantRecruteurTest {
 

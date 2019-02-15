@@ -9,9 +9,9 @@ import java.util.Date;
 
 import org.junit.jupiter.api.Test;
 
-import PlannificationEntretien.model.EntretienRequestNonCompleteException;
+import PlannificationEntretien.exception.EntretienRequestNonCompleteException;
 import PlannificationEntretien.model.ICandidat;
-import PlannificationEntretien.model.testCandidat;
+import PlannificationEntretien.model.Candidat;
 import PlannificationEntretien.model.testEntretienRequest;
 
 class EntretienRequestTest {

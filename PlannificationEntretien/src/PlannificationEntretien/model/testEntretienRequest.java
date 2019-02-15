@@ -3,6 +3,8 @@ package PlannificationEntretien.model;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import PlannificationEntretien.exception.EntretienRequestNonCompleteException;
+
 public class testEntretienRequest {
 
 	private String nom;
