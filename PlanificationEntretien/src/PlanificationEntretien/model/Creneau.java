@@ -19,20 +19,21 @@ public class Creneau {
 		//verifier date de debut
 		Calendar calendrier = Calendar.getInstance();
 		calendrier.setTime(date);
-		if (Integer.valueOf(calendrier.get(Calendar.HOUR)) < 9  ) {
-			throw new HeureEntretienException("Heure début d'entretien trop tot");
+		int heureDebutEntretien = Integer.valueOf(calendrier.get(Calendar.HOUR_OF_DAY));
+		if (heureDebutEntretien < 9  ) {
+			throw new HeureEntretienException("Heure debut d'entretien trop tot");
 		}
-		if (Integer.valueOf(calendrier.get(Calendar.HOUR)) > 17 ) {
-			throw new HeureEntretienException("Heure début d'entretien trop tard");
+		if (heureDebutEntretien > 18 ) {
+			throw new HeureEntretienException("Heure debut d'entretien trop tard");
 		}
 		//verifier duree entretien
 		if(dureeMinute > 180)
-			throw new DureeEntretienTropLongueException();
+			throw new DureeEntretienTropLongueException("Duree entretien trop longue");
 		calendrier.add(Calendar.MINUTE, dureeMinute);
 		dateFin = calendrier.getTime();
 		//verifier date de fin
-		if (Integer.valueOf(calendrier.get(Calendar.HOUR)) > 20 ) {
-			throw new HeureEntretienTropTardException();
+		if (Integer.valueOf(calendrier.get(Calendar.HOUR_OF_DAY)) > 20 ) {
+			throw new HeureEntretienTropTardException("Heure de fin d'entretien trop tard");
 		}
 	}
 	

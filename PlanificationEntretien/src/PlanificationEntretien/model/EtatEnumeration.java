@@ -1,6 +1,6 @@
 package PlanificationEntretien.model;
 
-enum EtatEnumeration {
+public enum EtatEnumeration {
 	Planifie,
 	Annule,
 	Replanifie,

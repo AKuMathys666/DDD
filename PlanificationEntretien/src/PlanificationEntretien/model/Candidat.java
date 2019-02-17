@@ -10,11 +10,10 @@ public class Candidat{
 	private TechEnumeration tech;
 	
 	public Candidat( String name, int age, TechEnumeration tech) throws NomVideException, AgeMineurException{
-		if(!name.equals(""))
+		if(name.equals(""))
 			throw new NomVideException("Le candidat n'a pas de nom.");
 		if(age < 18 )
 			throw new AgeMineurException("Le candidat n'a pas 18 ans");
-		
 		this.name = name;
 		this.age = age;
 		this.tech = tech;

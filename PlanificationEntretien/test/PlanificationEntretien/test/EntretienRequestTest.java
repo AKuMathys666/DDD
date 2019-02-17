@@ -2,34 +2,34 @@ package PlanificationEntretien.test;
 
 import static org.hamcrest.CoreMatchers.is; 
 import static org.junit.Assert.assertThat;
-import static org.junit.Assert.assertTrue; 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 
 import java.util.Date;
 
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 import PlanificationEntretien.exception.EntretienRequestNonCompleteException;
 import PlanificationEntretien.model.Candidat;
 import PlanificationEntretien.model.testEntretienRequest;
 
-class EntretienRequestTest {
+public class EntretienRequestTest {
 
 	@Test
-	void test_name() {
+	public void test_name() {
 		testEntretienRequest myEntretienRequest= new testEntretienRequest();
 		myEntretienRequest.setNom("Juan");
 		assertTrue(myEntretienRequest.getNom().equals("Juan"));
 	}
 	@Test
-	void test_date() {
+	public void test_date() {
 		testEntretienRequest myEntretienRequest= new testEntretienRequest();
 		myEntretienRequest.setDate(new Date());
 		assertTrue(myEntretienRequest.getDate() instanceof Date);
 	}
 
 	@Test
-	void test_entretien_request_non_complete() {
+	public void test_entretien_request_non_complete() {
 		try {
 			testEntretienRequest entretienRequest = new testEntretienRequest();
 			entretienRequest.setNom("Juan");
@@ -41,7 +41,7 @@ class EntretienRequestTest {
 	}
 	
 	@Test
-	void test_entretien_request_complete() {
+	public void test_entretien_request_complete() {
 			testEntretienRequest entretienRequest = new testEntretienRequest();
 			entretienRequest.setNom("Juan");
 			entretienRequest.setDate(new Date());
