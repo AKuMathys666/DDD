@@ -1,21 +1,25 @@
 package PlanificationEntretien.test;
 
-import static org.junit.Assert.assertTrue; 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.Assert.*;
 
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
-import PlanificationEntretien.model.Candidat;
+import PlanificationEntretien.exception.NomVideException;
 import PlanificationEntretien.model.ConsultantRecruteur;
+import PlanificationEntretien.model.TechEnumeration;
 
-class ConsultantRecruteurTest {
+public class ConsultantRecruteurTest {
 
-	/*@Test
-	void test_ajouter_commentaire_candidat() {
-		ICandidat myCandidat = new testCandidat();
-		IConsultantRecruteur myConsultantRecruteur = new testConsultantRecruteur();
-		myConsultantRecruteur.setCommentaire(myCandidat, "commentaire");
-		assertTrue(myCandidat.getCommentairesConsultants().equals("commentaire"));
-	}*/
+	@Test
+	public void test_consultant_sans_nom() {
+		try {
+			ConsultantRecruteur myConsultantRecruteur = new ConsultantRecruteur("",48,TechEnumeration.Agile);
+			fail("Devrait lever une exception car le le consultant recruteur n'a pas de nom");
+		} catch (NomVideException e) {
+			e.printStackTrace();
+			assert(e.getMessage().equals("Le consultant n'a pas de nom."));
+		}
+	}
+
 
 }

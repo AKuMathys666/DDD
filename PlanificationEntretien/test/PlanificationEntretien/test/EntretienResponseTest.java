@@ -3,11 +3,11 @@ package PlanificationEntretien.test;
 import static org.hamcrest.CoreMatchers.is; 
 import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.Assert.fail;
 
 import java.util.Date;
 
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 import PlanificationEntretien.exception.AgeMineurException;
 import PlanificationEntretien.exception.EntretienReponseNonCompleteException;
@@ -19,38 +19,38 @@ import PlanificationEntretien.model.TechEnumeration;
 import PlanificationEntretien.model.testEntretienRequest;
 import PlanificationEntretien.model.testEntretienResponse;
 
-class EntretienResponseTest {
+public class EntretienResponseTest {
 
 	@Test
-	void test_date() {
+	public void test_date() {
 		testEntretienResponse myEntretienResponse= new testEntretienResponse();
 		myEntretienResponse.setDate(new Date());
 		assertTrue(myEntretienResponse.getDate() instanceof Date);
 	}
 	
 	@Test
-	void test_consultant_recruteur() throws NomVideException {
+	public void test_consultant_recruteur() throws NomVideException {
 		testEntretienResponse myEntretienResponse= new testEntretienResponse();
-		myEntretienResponse.setConsultantRecruteur(new ConsultantRecruteur(null, 0, null));
+		myEntretienResponse.setConsultantRecruteur(new ConsultantRecruteur("Jean", 45, TechEnumeration.Agile));
 		assertTrue(myEntretienResponse.getConsultantRecruteur() instanceof ConsultantRecruteur);
 	}
 	
 	@Test
-	void test_candidat() throws NomVideException, AgeMineurException {
+	public void test_candidat() throws NomVideException, AgeMineurException {
 		testEntretienResponse myEntretienResponse= new testEntretienResponse();
 		myEntretienResponse.setCandidat(new Candidat("Jean",22,TechEnumeration.Android));
 		assertTrue(myEntretienResponse.getCandidat() instanceof Candidat);
 	}
 	
 	@Test
-	void test_numero_salle() {
+	public void test_numero_salle() {
 		testEntretienResponse myEntretienResponse= new testEntretienResponse();
 		myEntretienResponse.setSalleNumero("1");
 		assertTrue(myEntretienResponse.getSalleNumero().equals("1"));
 	}
 	
 	@Test
-	void test_entretien_response_complet() throws NomVideException, AgeMineurException {
+	public void test_entretien_response_complet() throws NomVideException, AgeMineurException {
 		try {
 			testEntretienResponse myEntretienResponse = new testEntretienResponse();
 			myEntretienResponse.setDate(new Date());
@@ -64,7 +64,7 @@ class EntretienResponseTest {
 	}
 	
 	@Test
-	void test_entretien_response_imcomplete_date() throws NomVideException, AgeMineurException {
+	public void test_entretien_response_imcomplete_date() throws NomVideException, AgeMineurException {
 		try {
 			testEntretienResponse myEntretienResponse = new testEntretienResponse();
 			myEntretienResponse.setSalleNumero("1");
@@ -78,7 +78,7 @@ class EntretienResponseTest {
 	}
 	
 	@Test
-	void test_entretien_response_imcomplete_sallenumero() throws NomVideException, AgeMineurException {
+	public void test_entretien_response_imcomplete_sallenumero() throws NomVideException, AgeMineurException {
 		try {
 			testEntretienResponse myEntretienResponse= new testEntretienResponse();
 			myEntretienResponse.setDate(new Date());
@@ -92,7 +92,7 @@ class EntretienResponseTest {
 	}
 	
 	@Test
-	void test_entretien_response_imcomplete_candidat() throws NomVideException {
+	public void test_entretien_response_imcomplete_candidat() throws NomVideException {
 		try {
 			testEntretienResponse myEntretienResponse= new testEntretienResponse();
 			myEntretienResponse.setDate(new Date());
@@ -106,7 +106,7 @@ class EntretienResponseTest {
 	}
 	
 	@Test
-	void test_entretien_response_imcomplete_consultant_recruteur() throws NomVideException, AgeMineurException {
+	public void test_entretien_response_imcomplete_consultant_recruteur() throws NomVideException, AgeMineurException {
 		try {
 			testEntretienResponse myEntretienResponse= new testEntretienResponse();
 			myEntretienResponse.setDate(new Date());
